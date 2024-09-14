@@ -20,21 +20,26 @@ public:
     bool isEmpty() const;
     bool searchItem(Type);
     void printList() const;
-    void copy(const List<Type> &);
+    void copy(const LinkedList<Type> &);
     void destroy();
     void print() const;
     
-    LinkedList();
-    ~LinkedList();
-    LinkedList(const LinkedList<Type> &);
-    const LinkedList<Type> & operator=(const LinkedList<Type> &);
+    LinkedList(); // Constructor
+    ~LinkedList(); // Destructor
+    LinkedList(const LinkedList<Type> &); // Copy constructor
+    const LinkedList<Type> & operator=(const LinkedList<Type> &); // Operator-overload
 
 };
 
+template <class Type>
+int LinkedList<Type>::getLength() const { return length; }
+template <class Type>
+LinkedList<Type>::LinkedList() : length(0), first(nullptr) {}
 
 int main() {
 
-    cout << "Hello world" << endl;
+    LinkedList<int> list;
+    cout << "List length: " << list.getLength() << endl;
 
     return 0;
 }
