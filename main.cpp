@@ -1,40 +1,40 @@
 #include <iostream>
 using namespace std;
 
-template <class Type>
+template <class T>
 struct node {
-    Type info;
-    node<Type>* next;
+    T info;
+    node<T>* next;
 };
 
-template <class Type>
+template <class T>
 class LinkedList {
 private:
-    node<Type>* first;
+    node<T>* first;
     int length;
 
 public:
-    void insertItem(Type);
-    void deleteItem(Type);
+    void insertItem(T);
+    void deleteItem(T);
     int getLength() const;
     bool isEmpty() const;
-    bool searchItem(Type);
+    bool searchItem(T);
     void printList() const;
-    void copy(const LinkedList<Type> &);
+    void copy(const LinkedList<T> &);
     void destroy();
     void print() const;
     
     LinkedList(); // Constructor
     ~LinkedList(); // Destructor
-    LinkedList(const LinkedList<Type> &); // Copy constructor
-    const LinkedList<Type> & operator=(const LinkedList<Type> &); // Operator-overload
+    LinkedList(const LinkedList<T> &); // Copy constructor
+    const LinkedList<T> & operator=(const LinkedList<T> &); // Operator-overload
 
 };
 
-template <class Type>
-int LinkedList<Type>::getLength() const { return length; }
-template <class Type>
-LinkedList<Type>::LinkedList() : length(0), first(nullptr) {}
+template <class T>
+int LinkedList<T>::getLength() const { return length; }
+template <class T>
+LinkedList<T>::LinkedList() : length(0), first(nullptr) {}
 
 int main() {
 
