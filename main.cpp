@@ -1,11 +1,7 @@
 #include <iostream>
+#include "node.h"
 using namespace std;
 
-template <class T>
-struct node {
-    T info;
-    node<T>* next;
-};
 
 template <class T>
 class LinkedList {
