@@ -3,8 +3,15 @@
 #include <iostream>
 
 
+/**
+ * @returns The number of items in list
+ */
 template <class T>
 int LinkedList<T>::getLength() const { return length; }
+/**
+ * @brief Inserts an item onto the list.
+ * @param itemToInsert The item that is to be inserted onto the list
+ */
 template <class T>
 void LinkedList<T>::insertItem(T itemToInsert) {
     node<T>* p = new node<T>; // New node to hold item to insert
@@ -30,6 +37,10 @@ void LinkedList<T>::insertItem(T itemToInsert) {
     }
     length++;
 }
+/**
+ * @brief Delete an item on the list
+ * @param itemToDelete The item that is to be deleted from the list
+ */
 template <class T>
 void LinkedList<T>::deleteItem(T itemToDelete) {
     if (length == 0) {
@@ -65,8 +76,15 @@ void LinkedList<T>::deleteItem(T itemToDelete) {
         }
     }
 }
+/**
+ * @retval true If the list is empty
+ * @retval false If the list is not empty
+ */
 template <class T>
 bool LinkedList<T>::isEmpty() const { return length == 0; }
+/**
+ * @brief Displays the contents of the list
+ */
 template <class T>
 void LinkedList<T>::printList() const {
 
@@ -84,6 +102,12 @@ void LinkedList<T>::printList() const {
         }
     }
 }
+/**
+ * @brief Searches for an item that's in the list
+ * @param itemToSearch The item that's being searched in the list
+ * @retval true If the item is in the list
+ * @retval false If the item isn't in the list
+ */
 template <class T>
 bool LinkedList<T>::searchItem(T itemToSearch) const {
     node<T>* p = first;
@@ -99,6 +123,10 @@ bool LinkedList<T>::searchItem(T itemToSearch) const {
 
     return false;
 }
+/**
+ * @brief Used in the copy constructor.
+ * @param &other A reference to the object being copied from
+ */
 template <class T>
 void LinkedList<T>::copy(const LinkedList<T> & other) {
     length = other.length;
@@ -123,6 +151,9 @@ void LinkedList<T>::copy(const LinkedList<T> & other) {
         r->next = nullptr;        
     }
 }
+/**
+ * @brief Used in the destructor.
+ */
 template <class T>
 void LinkedList<T>::destroy() {
     node<T>* p = nullptr;
@@ -137,12 +168,26 @@ void LinkedList<T>::destroy() {
     length = 0;
 }
 
+/**
+ * @brief Default constructor
+ */
 template <class T>
 LinkedList<T>::LinkedList() : length(0), first(nullptr) {}
+/**
+ * @brief Destructor
+ */
 template <class T>
 LinkedList<T>::~LinkedList() { destroy(); }
+/**
+ * @brief Copy constructor
+ */
 template <class T>
 LinkedList<T>::LinkedList(const LinkedList<T> & other) { copy(other) ;}
+/**
+ * @brief Operator overload of `=`. Can be used to copy lists.
+ * @param &right The list being copied from
+ * @returns An instance of LinkedList
+ */
 template <class T>
 const LinkedList<T> & LinkedList<T>::operator=(const LinkedList<T> & right) {
     if (this != &right) {

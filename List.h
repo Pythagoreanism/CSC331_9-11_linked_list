@@ -3,6 +3,9 @@
 #include "node.h"
 
 
+/**
+ * @brief A list made up of a collection of nodes scattered around the memory which are linked together
+ */
 template <class T>
 class LinkedList {
 private:
